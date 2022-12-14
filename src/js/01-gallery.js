@@ -1,30 +1,28 @@
 // Add imports above this line
 import { galleryItems } from './gallery-items';
+import SimpleLightbox from "simplelightbox";
+import "simplelightbox/dist/simple-lightbox.min.css";
 // Change code below this line
 
 console.log(galleryItems);
 
-import SimpleLightbox from 'simplelightbox';
-
-import 'simplelightbox/dist/simple-lightbox.min.css';
-
-const gallery = document.querySelector('.gallery');
-const items = [];
+const gallery = document.querySelector(`.gallery`);
+const item = [];
 
 galleryItems.forEach(element => {
-  const galleryLink = document.createElement('a');
-  galleryLink.className = 'gallery__link';
-  galleryLink.href = element.original;
-  const galleryImage = document.createElement('img');
-  galleryImage.className = 'gallery__image';
-  galleryImage.src = element.preview;
-  galleryImage.setAttribute('title', element.description);
-  galleryImage.alt = element.description;
+    const galleryLink = document.createElement(`a`);
+    galleryLink.className = `gallert__link`;
+    galleryLink.href = element.original;
+    const galleryImage = document.createElement(`img`);
+    galleryImage.className = 'gallery__image';
+    galleryImage.src = element.preview;
+    galleryImage.setAttribute('title', element.description);
+    galleryImage.alt = element.description;
 
-  galleryLink.append(galleryImage);
-  items.push(galleryLink);
+    galleryLink.append(galleryImage);
+    item.push(galleryLink);
 });
-gallery.append(...items);
+gallery.append(...item);
 
 new SimpleLightbox('.gallery a', {
   captionDelay: 250,
